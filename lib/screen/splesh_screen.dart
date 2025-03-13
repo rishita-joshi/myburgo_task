@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:myburgo_test/screen/home_page.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
 
@@ -12,12 +16,15 @@ class SpleshScreen extends StatefulWidget {
 class _SpleshScreenState extends State<SpleshScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    Timer(Duration(seconds: 4), () {
+      appStore.getChallangesList();
+      appStore.getVideoRecorededList();
+      appStore.getWorkShopList();
 
-    appStore.getChallangesList();
-    appStore.getLiveList();
-    appStore.getWorkShopList();
+      HomePage().launch(context,
+          isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade);
+    });
   }
 
   @override

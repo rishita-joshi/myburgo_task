@@ -18,8 +18,18 @@ abstract class _AppStore with Store {
   getChallangesList() async {
     List<ChallangeData> l1 = await HttpConfig().getChallangesAPI();
     challengeList.addAll(l1);
+    print("Length of the challange List ${challengeList}");
   }
 
-  getLiveList() {}
-  getWorkShopList() {}
+  getVideoRecorededList() async {
+    List<ChallangeData> l1 = await HttpConfig().getRecordedVideo();
+    videoRecordedList.addAll(l1);
+    print("Length of the videoRecorded  List ${videoRecordedList}");
+  }
+
+  getWorkShopList() async {
+    List<ChallangeData> l1 = await HttpConfig().getLiveVideo();
+    liveWorkshopList.addAll(l1);
+    print("Length of the  Live Workshoup  List ${liveWorkshopList}");
+  }
 }

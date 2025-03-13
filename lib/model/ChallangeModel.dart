@@ -1,24 +1,24 @@
 // To parse this JSON data, do
 //
-//     final ChallangeModel = ChallangeModelFromJson(jsonString);
+//     final ChallangeModel = ChallangeModelFromJson(jsondynamic);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-ChallangeModel ChallangeModelFromJson(String str) =>
+ChallangeModel ChallangeModelFromJson(dynamic str) =>
     ChallangeModel.fromJson(json.decode(str));
 
-String ChallangeModelToJson(ChallangeModel data) => json.encode(data.toJson());
+dynamic ChallangeModelToJson(ChallangeModel data) => json.encode(data.toJson());
 
 class ChallangeModel {
-  int page;
+  dynamic page;
   dynamic nextPage;
   dynamic nextPageLink;
   dynamic previousPage;
   dynamic previousPageLink;
-  int count;
-  int maxPages;
-  int totalCount;
+  dynamic count;
+  dynamic maxPages;
+  dynamic totalCount;
   List<ChallangeData> data;
 
   ChallangeModel({
@@ -33,7 +33,7 @@ class ChallangeModel {
     required this.data,
   });
 
-  factory ChallangeModel.fromJson(Map<String, dynamic> json) => ChallangeModel(
+  factory ChallangeModel.fromJson(Map<dynamic, dynamic> json) => ChallangeModel(
         page: json["page"],
         nextPage: json["next_page"],
         nextPageLink: json["next_page_link"],
@@ -46,7 +46,7 @@ class ChallangeModel {
             json["data"].map((x) => ChallangeData.fromJson(x))),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         "page": page,
         "next_page": nextPage,
         "next_page_link": nextPageLink,
@@ -60,54 +60,54 @@ class ChallangeModel {
 }
 
 class ChallangeData {
-  int id;
-  String workshopType;
+  dynamic id;
+  dynamic workshopType;
   Type type;
   List<WorkshopExpert> workshopExperts;
   DateTime created;
   DateTime modified;
-  bool deleted;
-  String description;
-  int index;
-  String title;
-  String metaTitle;
-  String metaDescription;
-  String ogTitle;
-  String ogDescription;
+  dynamic deleted;
+  dynamic description;
+  dynamic index;
+  dynamic title;
+  dynamic metaTitle;
+  dynamic metaDescription;
+  dynamic ogTitle;
+  dynamic ogDescription;
   dynamic ogImage;
   DateTime startDateTime;
   DateTime endDateTime;
-  bool isDateOnly;
-  String slug;
-  String file;
-  String aboutWorkshop;
-  int enrolments;
-  bool freeTrial;
-  int seats;
-  bool isUnlimitedSeats;
-  bool isActive;
-  int viewCount;
-  bool isFirstChapterFree;
-  int sellingPrice;
-  int mrp;
-  int discount;
-  bool showWorkshopcovers;
-  int sellingPriceUsd;
-  int mrpUsd;
-  int discountForUsd;
-  String liveWorkshopUrl;
-  String whatsappGroupUrl;
-  String recordedSessionUrl;
+  dynamic isDateOnly;
+  dynamic slug;
+  dynamic file;
+  dynamic aboutWorkshop;
+  dynamic enrolments;
+  dynamic freeTrial;
+  dynamic seats;
+  dynamic isUnlimitedSeats;
+  dynamic isActive;
+  dynamic viewCount;
+  dynamic isFirstChapterFree;
+  dynamic sellingPrice;
+  dynamic mrp;
+  dynamic discount;
+  dynamic showWorkshopcovers;
+  dynamic sellingPriceUsd;
+  dynamic mrpUsd;
+  dynamic discountForUsd;
+  dynamic liveWorkshopUrl;
+  dynamic whatsappGroupUrl;
+  dynamic recordedSessionUrl;
   dynamic ebook;
-  String purchaseCode;
+  dynamic purchaseCode;
   dynamic workshopBatch;
-  int intendedAudience;
-  int category;
-  List<int> whyThisWorks;
-  List<int> tags;
-  List<int> audience;
-  List<int> categories;
-  List<int> whatYouLearn;
+  dynamic dynamicendedAudience;
+  dynamic category;
+  List<dynamic> whyThisWorks;
+  List<dynamic> tags;
+  List<dynamic> audience;
+  List<dynamic> categories;
+  List<dynamic> whatYouLearn;
 
   ChallangeData({
     required this.id,
@@ -151,7 +151,7 @@ class ChallangeData {
     required this.ebook,
     required this.purchaseCode,
     required this.workshopBatch,
-    required this.intendedAudience,
+    required this.dynamicendedAudience,
     required this.category,
     required this.whyThisWorks,
     required this.tags,
@@ -160,7 +160,7 @@ class ChallangeData {
     required this.whatYouLearn,
   });
 
-  factory ChallangeData.fromJson(Map<String, dynamic> json) => ChallangeData(
+  factory ChallangeData.fromJson(Map<dynamic, dynamic> json) => ChallangeData(
         id: json["id"],
         workshopType: json["workshop_type"],
         type: Type.fromJson(json["type"]),
@@ -203,23 +203,23 @@ class ChallangeData {
         ebook: json["ebook"],
         purchaseCode: json["purchase_code"],
         workshopBatch: json["workshop_batch"],
-        intendedAudience: json["intended_audience"],
+        dynamicendedAudience: json["dynamicended_audience"],
         category: json["category"],
-        whyThisWorks: List<int>.from(json["why_this_works"].map((x) => x)),
-        tags: List<int>.from(json["tags"].map((x) => x)),
-        audience: List<int>.from(json["audience"].map((x) => x)),
-        categories: List<int>.from(json["categories"].map((x) => x)),
-        whatYouLearn: List<int>.from(json["what_you_learn"].map((x) => x)),
+        whyThisWorks: List<dynamic>.from(json["why_this_works"].map((x) => x)),
+        tags: List<dynamic>.from(json["tags"].map((x) => x)),
+        audience: List<dynamic>.from(json["audience"].map((x) => x)),
+        categories: List<dynamic>.from(json["categories"].map((x) => x)),
+        whatYouLearn: List<dynamic>.from(json["what_you_learn"].map((x) => x)),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         "id": id,
         "workshop_type": workshopType,
         "type": type.toJson(),
         "workshop_experts":
             List<dynamic>.from(workshopExperts.map((x) => x.toJson())),
-        "created": created.toIso8601String(),
-        "modified": modified.toIso8601String(),
+        "created": created,
+        "modified": modified,
         "deleted": deleted,
         "description": description,
         "index": index,
@@ -229,8 +229,8 @@ class ChallangeData {
         "og_title": ogTitle,
         "og_description": ogDescription,
         "og_image": ogImage,
-        "start_date_time": startDateTime.toIso8601String(),
-        "end_date_time": endDateTime.toIso8601String(),
+        "start_date_time": startDateTime,
+        "end_date_time": endDateTime,
         "is_date_only": isDateOnly,
         "slug": slug,
         "file": file,
@@ -255,7 +255,7 @@ class ChallangeData {
         "ebook": ebook,
         "purchase_code": purchaseCode,
         "workshop_batch": workshopBatch,
-        "intended_audience": intendedAudience,
+        "dynamicended_audience": dynamicendedAudience,
         "category": category,
         "why_this_works": List<dynamic>.from(whyThisWorks.map((x) => x)),
         "tags": List<dynamic>.from(tags.map((x) => x)),
@@ -266,71 +266,71 @@ class ChallangeData {
 }
 
 class Type {
-  int id;
-  String title;
+  dynamic id;
+  dynamic title;
 
   Type({
     required this.id,
     required this.title,
   });
 
-  factory Type.fromJson(Map<String, dynamic> json) => Type(
+  factory Type.fromJson(Map<dynamic, dynamic> json) => Type(
         id: json["id"],
         title: json["title"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         "id": id,
         "title": title,
       };
 }
 
 class WorkshopExpert {
-  int id;
-  String firstName;
-  String lastName;
+  dynamic id;
+  dynamic firstName;
+  dynamic lastName;
   DateTime created;
   DateTime modified;
-  bool deleted;
-  String slug;
-  String title;
+  dynamic deleted;
+  dynamic slug;
+  dynamic title;
   dynamic metaTitle;
-  String metaDescription;
+  dynamic metaDescription;
   dynamic ogTitle;
-  String ogDescription;
+  dynamic ogDescription;
   dynamic ogImage;
-  String image;
-  String nickname;
-  String city;
+  dynamic image;
+  dynamic nickname;
+  dynamic city;
   dynamic dateOfBirth;
   dynamic dateOfAnniversary;
-  String about;
+  dynamic about;
   dynamic facebook;
   dynamic linkedin;
-  String instagram;
+  dynamic instagram;
   dynamic threads;
   dynamic telegram;
   dynamic x;
   dynamic link;
-  String workshopTagline;
-  String specialistTagline;
-  String aboutSessionOffered;
-  bool visible;
-  int viewCount;
-  int oneOnOneExpert;
-  int onDemandExpert;
-  int liveExpert;
-  int oneOnOneMyburgo;
-  int onDemandMyburgo;
-  int liveMyburgo;
-  bool googleCalendarSync;
-  bool hasGst;
-  int user;
-  int heroWorkshop;
-  List<int> category;
-  List<int> expertType;
-  List<int> skills;
-  List<int> speciality;
+  dynamic workshopTagline;
+  dynamic specialistTagline;
+  dynamic aboutSessionOffered;
+  dynamic visible;
+  dynamic viewCount;
+  dynamic oneOnOneExpert;
+  dynamic onDemandExpert;
+  dynamic liveExpert;
+  dynamic oneOnOneMyburgo;
+  dynamic onDemandMyburgo;
+  dynamic liveMyburgo;
+  dynamic googleCalendarSync;
+  dynamic hasGst;
+  dynamic user;
+  dynamic heroWorkshop;
+  List<dynamic> category;
+  List<dynamic> expertType;
+  List<dynamic> skills;
+  List<dynamic> speciality;
   List<dynamic> langugaes;
 
   WorkshopExpert({
@@ -382,7 +382,7 @@ class WorkshopExpert {
     required this.langugaes,
   });
 
-  factory WorkshopExpert.fromJson(Map<String, dynamic> json) => WorkshopExpert(
+  factory WorkshopExpert.fromJson(Map<dynamic, dynamic> json) => WorkshopExpert(
         id: json["id"],
         firstName: json["first_name"],
         lastName: json["last_name"],
@@ -424,19 +424,19 @@ class WorkshopExpert {
         hasGst: json["has_gst"],
         user: json["user"],
         heroWorkshop: json["hero_workshop"],
-        category: List<int>.from(json["category"].map((x) => x)),
-        expertType: List<int>.from(json["expert_type"].map((x) => x)),
-        skills: List<int>.from(json["skills"].map((x) => x)),
-        speciality: List<int>.from(json["speciality"].map((x) => x)),
+        category: List<dynamic>.from(json["category"].map((x) => x)),
+        expertType: List<dynamic>.from(json["expert_type"].map((x) => x)),
+        skills: List<dynamic>.from(json["skills"].map((x) => x)),
+        speciality: List<dynamic>.from(json["speciality"].map((x) => x)),
         langugaes: List<dynamic>.from(json["langugaes"].map((x) => x)),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         "id": id,
         "first_name": firstName,
         "last_name": lastName,
-        "created": created.toIso8601String(),
-        "modified": modified.toIso8601String(),
+        "created": created,
+        "modified": modified,
         "deleted": deleted,
         "slug": slug,
         "title": title,
