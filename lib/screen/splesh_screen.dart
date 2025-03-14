@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:myburgo_test/screen/dashboard_page.dart';
 import 'package:myburgo_test/screen/home_page.dart';
+import 'package:myburgo_test/utils/theme_class.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
@@ -22,7 +24,7 @@ class _SpleshScreenState extends State<SpleshScreen> {
       appStore.getVideoRecorededList();
       appStore.getWorkShopList();
 
-      HomePage().launch(context,
+      DashboardPage().launch(context,
           isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade);
     });
   }
@@ -31,7 +33,11 @@ class _SpleshScreenState extends State<SpleshScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FlutterLogo(),
+        child: Image.asset(
+          ImageConstant.ic_logo_purple,
+          height: 50,
+          width: 50,
+        ),
       ),
     );
   }

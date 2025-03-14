@@ -4,6 +4,8 @@ class ThemeClass {
   static Color greyColor = Colors.grey;
   static Color pinkColor = Color(0xFFFF67A1);
   static Color primeryColor = Color(0xFFE1DBFB);
+
+  static Color darkPrimeryColor = Color(0xFF602EF4);
 }
 
 class ImageConstant {
